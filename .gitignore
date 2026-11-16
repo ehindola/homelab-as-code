@@ -1,0 +1,13 @@
+# Vendor images and VM disks must never be committed
+*.bin
+*.qcow2
+*.iso
+*.img
+*.ova
+*.vmdk
+iourc
+
+# Local files
+.DS_Store
+Thumbs.db
+__pycache__/
