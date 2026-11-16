@@ -2,7 +2,7 @@
 
 ![Campus network lab cover](diagrams/00-cover.png)
 
-A small campus network built from scratch in EVE-NG: three VLANs, 802.1Q trunks, inter-VLAN routing on a layer 3 switch, OSPF between the core and the edge router, and NAT to the internet. This is the first lab in a series that grows into a single enterprise-style network.
+A small campus network built from scratch in EVE-NG: three VLANs, 802.1Q trunks, inter-VLAN routing on a layer 3 switch, OSPF between the core and the edge router, and NAT to the internet.
 
 ## What this lab covers
 
@@ -104,10 +104,6 @@ Three faults came up during the build. Each is written up in [docs/troubleshooti
 ![Wrong VLAN on an access port](diagrams/04-troubleshooting-wrong-vlan.png)
 
 ![OSPF mask mismatch](diagrams/05-troubleshooting-ospf-mask.png)
-
-## Lab series
-
-![Roadmap](diagrams/06-lab-roadmap.png)
 
 ## Environment
 
