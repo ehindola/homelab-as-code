@@ -8,7 +8,7 @@ Five posts, written for LinkedIn. Each has a matching image in `diagrams/`. Post
 
 **Image:** `diagrams/00-cover.png`
 
-I just finished the first lab in a homelab series I'm building to sharpen my networking and security skills.
+I just finished the first lab in my homelab, which I'm building to sharpen my networking and security skills.
 
 Lab 1 is a small campus network, built from an empty canvas in EVE-NG:
 
@@ -106,9 +106,9 @@ Full troubleshooting log with the command output: <repo link>
 
 ---
 
-## Post 5: reaching the internet, and what's next
+## Post 5: reaching the internet
 
-**Image:** `diagrams/03-ospf-and-nat.png` (add `06-lab-roadmap.png` as a second image)
+**Image:** `diagrams/03-ospf-and-nat.png`
 
 Last piece of Lab 1: getting a private campus network onto the internet.
 
@@ -123,8 +123,6 @@ NAT, so private addresses can leave:
 • The router rewrites the source address to its own outside address on the way out, and reverses it on the way back.
 
 The final test was three pings from the client: the router, 8.8.8.8, then google.com. Each one proves a different layer: internal routing, NAT, then DNS.
-
-Next in the series is Lab 2: adding a Windows Server for Active Directory, DNS and DHCP, and joining the client to a domain.
 
 Everything from Lab 1 is here: <repo link>
 

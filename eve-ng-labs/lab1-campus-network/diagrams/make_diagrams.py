@@ -286,31 +286,6 @@ def d_ts_ospf(out):
     d.save(os.path.join(out, "05-troubleshooting-ospf-mask.svg"))
 
 
-def d_roadmap(out):
-    d = Diagram("Lab series roadmap", "Each lab extends the one before it into a single enterprise-style network",
-                "Six labs: campus network, core services, perimeter security, site-to-site VPN, AAA and wireless, and multi-vendor routing. Lab 1 is complete.")
-    labs = [
-        ("Lab 1", "Campus network", ["VLANs and 802.1Q trunks", "Inter-VLAN routing", "OSPF and NAT"], "good"),
-        ("Lab 2", "Core services", ["Active Directory and DNS", "DHCP with relay", "Domain-joined client"], "note"),
-        ("Lab 3", "Perimeter security", ["FortiGate at the edge", "Firewall policies and NAT", "DMZ web server"], "note"),
-        ("Lab 4", "Second site and VPN", ["Branch office", "IPsec site-to-site tunnel", "Routing over the tunnel"], "note"),
-        ("Lab 5", "AAA and wireless", ["RADIUS device logins", "Wireless LAN controller", "802.1X concepts"], "note"),
-        ("Lab 6", "Multi-vendor routing", ["Cisco, Juniper, MikroTik", "OSPF and BGP interop", "Route redistribution"], "note"),
-    ]
-    for i, (n, name, pts, st) in enumerate(labs):
-        x = 60 + (i % 3) * 510
-        y = 190 + (i // 3) * 330
-        fill, stroke, tc, sc = STYLES[st]
-        d.rect(x, y, 460, 290, fill, stroke, 16, 2)
-        d.text(x + 30, y + 52, n, 20, sc, weight=700)
-        d.text(x + 30, y + 94, name, 30, tc, weight=700)
-        for j, p in enumerate(pts):
-            d.text(x + 30, y + 150 + j * 38, "•  " + p, 20, INK)
-        if st == "good":
-            d.chip(x + 330, y + 26, "Done", "good", 18)
-    d.save(os.path.join(out, "06-lab-roadmap.svg"))
-
-
 def d_cover(out):
     d = Diagram(None, None, "Cover image: campus network lab built in EVE-NG, with a small topology diagram.")
     d.title = "Campus network lab in EVE-NG"
@@ -324,7 +299,7 @@ def d_cover(out):
     x = 80
     for lab in ["OSPF", "NAT", "Troubleshooting"]:
         x += d.chip(x, 580, lab, "host", 20) + 14
-    d.text(80, 800, "Lab 1 of 6 · Homelab series", 22, "#888780")
+    d.text(80, 800, "Lab 1 · Homelab series", 22, "#888780")
     ox, oy = 880, 90
     d.box(ox + 220, oy + 40, 200, 60, "Internet", style="ext", tsize=22)
     d.box(ox + 220, oy + 170, 200, 70, "R1", style="net")
@@ -345,6 +320,6 @@ def d_cover(out):
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
     os.makedirs(out, exist_ok=True)
-    for fn in (d_cover, d_topology, d_packet_path, d_ospf_nat, d_ts_vlan, d_ts_ospf, d_roadmap):
+    for fn in (d_cover, d_topology, d_packet_path, d_ospf_nat, d_ts_vlan, d_ts_ospf):
         fn(out)
     print("wrote diagrams to", out)
